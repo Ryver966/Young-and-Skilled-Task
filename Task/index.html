@@ -8,6 +8,16 @@
   </head>
   <body>
     <div class='top-bar'>
+      <div class='mobile-menu' onclick='toggleMobileMenu()'>
+        <img src='../frontend-task-html/assets/icon-hamburger.svg' />
+        <a>Menu</a>
+      </div>
+      <ul id='mobile-menu-list'>
+        <li>Women</li>
+        <li>Men</li>
+        <li>Accessories</li>
+        <li>Shoes</li>
+      </ul>
       <h4>ACME STORE</h4>
       <nav>
         <a>Women</a>
@@ -21,48 +31,48 @@
       </div>
     </div>
     <div class='main-container'>
-      <h5>CHECKOUT</h5>
+      <h5 class='main-container-header'>CHECKOUT</h5>
       <div class='customer-info-container'>
         <h5>DELIVERY ADDRESS</h5>
         <div class='input-field'>
           <p class='required-field-txt'>FIRST NAME</p>
-          <input type='text' required />
+          <input type='text' onchange='setButton()' id='first-name' />
         </div>
         <div class='input-field'>
           <p class='required-field-txt'>LAST NAME</p>
-          <input type='text' required />
+          <input type='text' onchange='setButton()' id='last-name' />
         </div>
         <div class='input-field'>
           <p class='required-field-txt'>E-MAIL</p>
-          <input type='text' />
+          <input type='email' onchange='setButton()' id='email' />
         </div>
         <div class='input-field'>
           <p>PHONE</p>
-          <input type='text' />
+          <input type='number' />
         </div>
         <div class='input-field'>
-          <p class='required-field-txt'>ADDRESS</p>
-          <input type='text' />
+          <p class='required-field-txt'>ADRESS</p>
+          <input type='text' onchange='setButton()' id='adress' />
         </div>
         <div class='input-field'>
-          <p>ADDRESS CONT.</p>
+          <p>ADRESS CONT.</p>
           <input type='text' />
         </div>
         <div class='input-field'>
           <p class='required-field-txt'>ZIP CODE</p>
-          <input type='text' />
+          <input type='number' onchange='setButton()' id='zip-code' />
         </div>
         <div class='input-field'>
           <p class='required-field-txt'>CITY</p>
-          <input type='text' />
+          <input type='text' onchange='setButton()' id='city' />
         </div>
         <div class='input-field'>
           <p class='required-field-txt'>STATE</p>
-          <input type='text' />
+          <input type='text' onchange='setButton()' id='state' />
         </div>
         <div class='input-field'>
           <p class='required-field-txt'>COUNTRY</p>
-          <select>
+          <select id='country' onchange='setButton()'>
             <option disabled selected>Select country</option>
             <option>United States</option>
             <option>Canada</option>
@@ -73,19 +83,54 @@
         <h5>PAYMENT</h5>
         <div class='input-field'>
           <p class='required-field-txt'>CARD NUMBER</p>
-          <input type='text' />
+          <input type='number' onchange='setButton()' id='card-number' />
         </div>
         <div class='input-field'>
           <p class='required-field-txt'>CARD HOLDER</p>
-          <input type='text' />
+          <input type='text' onchange='setButton()' id='card-holder' />
         </div>
         <div class='input-field'>
           <p class='required-field-txt'>CVV</p>
-          <input type='text' />
+          <input type='number' onchange='setButton()' id='cvv' />
         </div>
         <div class='input-field'>
-          <input type='submit' value='BUY' />
+          <input type='button' onclick='test()' value='BUY' id='send-btn' disabled />
         </div>
+      </div>
+      <div class='order-container'>
+        <h5>YOUR ORDER</h5>
+        <div class='product-container'>
+          <img src='../frontend-task-html/assets/pic-item.png' />
+          <div class='product-info'>
+            <p class='product-name'>Sunglasses</p>
+            <p>
+              <a class='first-column'>Qty</a>
+              <a class='second-column'>1</a>
+            </p>
+            <div style="height:5px;font-size:1px;">&nbsp;</div>
+            <p>
+              <a class='first-column'>Price</a>
+              <a class='second-column price'>$300.00</a>
+            </p>
+          </div>
+          </div>
+          <h5>ORDER SUMMARY</h5>
+          <div class='order-summary'>
+            <p>
+              <a class='first-column'>Subtotal</a>
+              <a class='second-column'>$300.00</a>
+            </p>
+            <div style="height:5px;font-size:1px;">&nbsp;</div>
+            <p>
+              <a class='first-column'>Shipping</a>
+              <a class='second-column'>$20.00</a>
+            </p>
+            <div style="height:5px;font-size:1px;">&nbsp;</div>
+            <p>
+              <a class='first-column total'>Total</a>
+              <a class='second-column price total'>$320.00</a>
+            </p>
+          </div>
       </div>
     </div>
   </body>
